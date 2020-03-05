@@ -32,12 +32,56 @@ void MapTool::Init()
 
 	m_pSelectUI = new Sprite(L"SelectUI", 8, 8, 39);
 	m_pSelectUI->SetConstantScale(UI_FONT_SIZE, UI_FONT_SIZE);
+
+	// 이전에 저장한 맵 파일 불러오기
+	for (int i = 0; i < NUM_TILE_Y; i++)
+	{
+		auto mapIdx = g_pFileManager->LoadStringData(L"MapInfo", L"맵 정보", to_wstring(i) + L"Y" + L"Idx");
+		auto mapType = g_pFileManager->LoadStringData(L"MapInfo", L"맵 정보", to_wstring(i) + L"Y" + L"Type");
+		int idxIdx = 0, typeIdx = 0;
+		for (int j = 0; j < NUM_TILE_X; j++)
+		{
+			int n = 0;			
+			while (idxIdx < mapIdx.size() && mapIdx[idxIdx++] != ' ')
+			{
+				n *= 10;
+				n += mapIdx[idxIdx - 1] - '0';
+			}
+			m_stTiles[i][j].nImageIndex = n;
+
+			n = 0;
+			while (typeIdx < mapType.size() && mapType[typeIdx++] != ' ')
+			{
+				n *= 10;
+				n += mapType[typeIdx - 1] - '0';
+			}
+			m_stTiles[i][j].eType = (TEARRIN_TYPE)n;
+		}
+	}
 }
 
 void MapTool::Update()
 {
 	if (g_pKeyManager->isOnceKeyDown(VK_ESCAPE))
+	{
+		// 현재 드로우 영역의 맵 파일에 저장하기
+		for (int i = 0; i < NUM_TILE_Y; i++)
+		{
+			string mapIdx;
+			string mapType;
+			for (int j = 0; j < NUM_TILE_X; j++)
+			{
+				mapIdx += to_string(m_stTiles[i][j].nImageIndex) + " ";
+				mapType += to_string((int)m_stTiles[i][j].eType) + " ";
+			}
+			g_pFileManager->AddSaveString(L"맵 정보", to_wstring(i) + L"Y" + L"Idx", mapIdx);
+			g_pFileManager->AddSaveString(L"맵 정보", to_wstring(i) + L"Y" + L"Type", mapType);
+		}
+		g_pFileManager->IniSave(L"MapInfo");
+
+		// 타이틀 화면으로 나가기
 		g_pLoadManager->ChangeScene(SCENE_KIND::Title);
+	}
 
 	// 팔레트 영역
 	if (g_ptMouse.x > 0 && g_ptMouse.x < TOOL_AREA_X)

@@ -1,4 +1,14 @@
-﻿  Dx2D.cpp
-c:\users\rae\desktop\maptool\200304 dx2d maptool\dx2d\dx2d.cpp(153): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-c:\users\rae\desktop\maptool\200304 dx2d maptool\dx2d\dx2d.cpp(154): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+﻿  MapTool.cpp
+c:\users\rae\desktop\maptool\200304 dx2d maptool\dx2d\igamenode.h(4): warning C4099: 'iGameNode': type name first seen using 'class' now seen using 'struct'
+  c:\users\rae\desktop\maptool\200304 dx2d maptool\dx2d\igamenode.h(3): note: see declaration of 'iGameNode'
+c:\users\rae\desktop\maptool\200304 dx2d maptool\dx2d\maptool.cpp(45): warning C4018: '<': signed/unsigned mismatch
+c:\users\rae\desktop\maptool\200304 dx2d maptool\dx2d\maptool.cpp(53): warning C4018: '<': signed/unsigned mismatch
+c:\users\rae\desktop\maptool\200304 dx2d maptool\dx2d\maptool.cpp(97): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\rae\desktop\maptool\200304 dx2d maptool\dx2d\maptool.cpp(114): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\rae\desktop\maptool\200304 dx2d maptool\dx2d\maptool.cpp(143): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\rae\desktop\maptool\200304 dx2d maptool\dx2d\maptool.cpp(162): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\rae\desktop\maptool\200304 dx2d maptool\dx2d\maptool.cpp(167): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\rae\desktop\maptool\200304 dx2d maptool\dx2d\maptool.cpp(171): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\rae\desktop\maptool\200304 dx2d maptool\dx2d\maptool.cpp(199): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\rae\desktop\maptool\200304 dx2d maptool\dx2d\maptool.cpp(213): warning C4018: '<': signed/unsigned mismatch
   Dx2D.vcxproj -> C:\Users\Rae\Desktop\mapTool\200304 Dx2D Maptool\Debug\Dx2D.exe
